@@ -1,3 +1,8 @@
+local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
+local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
+local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
+local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
+
 local LogWindow = Library:CreateWindow({
     Title = "",
     Center = true,
@@ -29,3 +34,13 @@ LogBox:AddButton({
        Library:Unload()
     end
 })
+
+ThemeManager:SetLibrary(Library)
+ThemeManager:SetFolder("DiveCool")
+SaveManager:SetLibrary(Library)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetSubFolder("script")
+SaveManager:SetFolder("DiveCool/script")
+SaveManager:LoadAutoloadConfig()
+
+Library:UpdateKeybindFrame()
